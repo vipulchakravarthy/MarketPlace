@@ -12,36 +12,48 @@ import {
 } from "react-native";
 
 export default function App() {
-  console.log(Dimensions.get("screen"));
   return (
-    <SafeAreaView style={styles.container}>
+    <View
+      style={{
+        backgroundColor: "#fff",
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        alignContent: "center",
+        flexWrap: "wrap",
+      }}
+    >
       <View
         style={{
           backgroundColor: "dodgerblue",
-          flex: 1,
+          // flexBasis: 100, //similar to width or height
+          width: 100,
+          height: 100,
         }}
-      >
-        <View
-          style={{
-            backgroundColor: "gold",
-            flex: 1,
-          }}
-        />
-      </View>
+      ></View>
+      <View
+        style={{
+          backgroundColor: "gold",
+          width: 100,
+          height: 100,
+        }}
+      />
       <View
         style={{
           backgroundColor: "tomato",
-          flex: 1,
+          width: 100,
+          height: 100,
         }}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    paddingTop: Platform.OS === "android" ? 50 : 0,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     paddingTop: Platform.OS === "android" ? 50 : 0,
+//   },
+// });
