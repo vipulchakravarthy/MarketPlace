@@ -1,11 +1,39 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableNativeFeedback,
+  Image,
+  Button,
+  SafeAreaView,
+  Platform,
+  Dimensions,
+} from "react-native";
 
 export default function App() {
+  console.log(Dimensions.get("screen"));
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Hey Vipul!</Text>
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          flex: 1,
+        }}
+      >
+        <View
+          style={{
+            backgroundColor: "gold",
+            flex: 1,
+          }}
+        />
+      </View>
+      <View
+        style={{
+          backgroundColor: "tomato",
+          flex: 1,
+        }}
+      />
     </SafeAreaView>
   );
 }
@@ -13,8 +41,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "dodgerblue",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: "#fff",
+    paddingTop: Platform.OS === "android" ? 50 : 0,
   },
 });
