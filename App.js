@@ -10,17 +10,28 @@ import {
   Platform,
   Dimensions,
 } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
+import AppText from "./app/components/AppText/AppText";
+import AppButton from "./app/components/AppText/AppButton";
+import Card from "./app/components/AppText/Card";
 
 export default function App() {
-  return <ViewImageScreen />;
+  return (
+    <View
+      style={{
+        backgroundColor: "#f8f4f4",
+        padding: 20,
+        paddingTop: 100,
+      }}
+    >
+      <Card
+        title="Red jacket for sale"
+        subTitle="$100"
+        image={require("./app/assets/jacket.jpg")}
+      />
+    </View>
+  );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     paddingTop: Platform.OS === "android" ? 50 : 0,
-//   },
-// });
