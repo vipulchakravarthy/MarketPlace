@@ -1,8 +1,9 @@
 import React from "react";
 import { View, StyleSheet, Image } from "react-native";
 
-import colors from "../../config/colors";
+import colors from "../config/colors";
 import AppText from "./AppText";
+
 function ListItem({ title, subTitle, image }) {
   return (
     <View style={styles.container}>
