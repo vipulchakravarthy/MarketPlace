@@ -1,15 +1,15 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Touchable } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/colors";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 function ListItemDeleteAction({ onPress }) {
   return (
-    <TouchableWithoutFeedback onPress={onPress} style={styles.container}>
-      <View>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.container}>
         <MaterialCommunityIcons
-          name="trash-can-outline"
+          name="delete"
           color={colors.white}
           size={30}
         ></MaterialCommunityIcons>
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     width: 70,
     justifyContent: "center",
     alignItems: "center",
+    height: "100%",
   },
 });
 
