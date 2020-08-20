@@ -22,10 +22,8 @@ import MessagesScreen from "./app/screens/MessagesScreen";
 import Screen from "./app/components/screen";
 import Icon from "./app/components/Icon"
 import ListItem from "./app/components/ListItem";
+import AccountScreen from "./app/screens/AccountScreen";
 
 export default function App() {
-  return <Screen>
-    <ListItem title="title" subTitle="sub title"
-      ImageComponent={<Icon name="email" size={50} />} />
-  </Screen>;
+  return <AccountScreen />;
 }
