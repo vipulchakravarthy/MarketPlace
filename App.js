@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,6 +9,8 @@ import {
   SafeAreaView,
   Platform,
   Dimensions,
+  TextInput,
+  Switch,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -24,7 +26,11 @@ import Icon from "./app/components/Icon"
 import ListItem from "./app/components/ListItem";
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from "./app/components/AppTextInput";
 
 export default function App() {
-  return <ListingsScreen />;
+  const [isNew, setIsNew] = useState(false);
+  return <Screen>
+    <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
+  </Screen>;
 }
