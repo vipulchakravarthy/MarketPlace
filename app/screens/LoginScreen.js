@@ -8,6 +8,7 @@ import AppTextInput from "../components/AppTextInput"
 import AppButton from '../components/AppButton';
 import AppText from "../components/AppText"
 import ErrorMessage from '../components/ErrorMessage';
+import AppFormField from '../components/AppFormField';
 
 
 const validationSchema = Yup.object().shape({
@@ -30,28 +31,24 @@ function LoginScreen(props) {
             >
                 {({ handleChange, handleSubmit, errors, setFieldTouched, touched }) => (
                     <>
-                        <AppTextInput
+                        <AppFormField
                             icon="email"
                             autoCapitalize="none"
                             autoCorrect={false}
                             keyboardType="email-address"
                             placeholder="Email"
-                            onChangeText={handleChange("email")}
                             textContentType="emailAddress"
-                            onBlur={() => setFieldTouched("email")}
+                            name="email"
                         />
-                        <ErrorMessage error={errors.email} visible={touched.email} />
-                        <AppTextInput
+                        <AppFormField
                             icon="lock"
                             autoCapitalize="none"
                             autoCorrect={false}
                             secureTextEntry
                             placeholder="Password"
-                            onChangeText={handleChange("password")}
                             textContentType="password"
-                            onBlur={() => setFieldTouched("password")}
+                            name="password"
                         />
-                        <ErrorMessage error={errors.password} visible={touched.password} />
                         <AppButton title="login" onPress={handleSubmit} />
                     </>
                 )}
