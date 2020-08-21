@@ -8,7 +8,8 @@ import defaultStyles from "../config/styles"
 import Screen from "../components/screen"
 import AppText from "./AppText"
 import PickerItem from './PickerItem';
-function AppPicker({ icon, placeholder, onSeletedItem, selectedItem, items }) {
+
+function AppPicker({ icon, placeholder, onSelectedItem, selectedItem, items }) {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
@@ -28,7 +29,7 @@ function AppPicker({ icon, placeholder, onSeletedItem, selectedItem, items }) {
                     renderItem={({ item }) => <PickerItem label={item.label}
                         onPress={() => {
                             setModalVisible(false);
-                            onSeletedItem(item);
+                            onSelectedItem(item);
                         }} />}
                 />
             </Modal>
