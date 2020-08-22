@@ -17,7 +17,7 @@ function ListItem({ title, subTitle, image, IconComponent, onPress, renderRightA
             <AppText style={styles.title} numberOfLines={1}>{title}</AppText>
             {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
           </View>
-          <MaterialCommunityIcons color={colors.medium} name="chevron-right" size="25" />
+          <MaterialCommunityIcons color={colors.medium} name="chevron-right" size={25} />
         </View>
       </TouchableHighlight>
     </Swipeable>
