@@ -9,7 +9,7 @@ import Screen from "../components/screen"
 import AppText from "./AppText"
 import PickerItem from './PickerItem';
 
-function AppPicker({ icon, placeholder, onSelectedItem, selectedItem, items, width = "100%" }) {
+function AppPicker({ icon, placeholder, onSelectedItem, selectedItem, items, width = "100%", PickerItemComponent = PickerItem }) {
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
@@ -27,7 +27,7 @@ function AppPicker({ icon, placeholder, onSelectedItem, selectedItem, items, wid
                 <FlatList
                     data={items}
                     keyExtractor={item => item.value.toString()}
-                    renderItem={({ item }) => <PickerItem label={item.label}
+                    renderItem={({ item }) => <PickerItemComponent label={item.label}
                         onPress={() => {
                             setModalVisible(false);
                             onSelectedItem(item);
