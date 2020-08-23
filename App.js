@@ -33,37 +33,13 @@ import AppPicker from "./app/components/AppPicker"
 import LoginScreen from "./app/screens/LoginScreen"
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
+import ImageInput from "./app/components/ImageInput";
 
 export default function App() {
 
   const [imageUri, setImageUri] = useState();
 
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync()
-    if (!granted) {
-      alert("You need to enable the permission to access the library")
-    } else {
-      alert("You can access now")
-    }
-
-  }
-
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync()
-      if (!result.cancelled) {
-        setImageUri(result.uri)
-      }
-    } catch (error) {
-      console.log("error reading an image", error)
-    }
-  }
-
-  useEffect(() => {
-    requestPermission();
-  }, [])
   return <Screen>
-    <Button title="Select Image" onPress={selectImage} />
-    <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
+    <ImageInput imageUri={imageUri} onChangeImage={(uri) => setImageUri(uri)} />
   </Screen>;
 }
