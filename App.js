@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions'
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -35,9 +36,10 @@ import RegisterScreen from "./app/screens/RegisterScreen";
 
 export default function App() {
 
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync
+  const [imageUri, setImageUri] = useState();
 
+  const requestPermission = async () => {
+    const { granted } = await ImagePicker.requestCameraRollPermissionsAsync()
     if (!granted) {
       alert("You need to enable the permission to access the library")
     } else {
@@ -46,8 +48,22 @@ export default function App() {
 
   }
 
+  const selectImage = async () => {
+    try {
+      const result = await ImagePicker.launchImageLibraryAsync()
+      if (!result.cancelled) {
+        setImageUri(result.uri)
+      }
+    } catch (error) {
+      console.log("error reading an image", error)
+    }
+  }
+
   useEffect(() => {
     requestPermission();
   }, [])
-  return <Screen></Screen>;
+  return <Screen>
+    <Button title="Select Image" onPress={selectImage} />
+    <Image source={{ uri: imageUri }} style={{ width: 200, height: 200 }} />
+  </Screen>;
 }
