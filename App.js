@@ -34,12 +34,24 @@ import LoginScreen from "./app/screens/LoginScreen"
 import ListingEditScreen from "./app/screens/ListingEditScreen";
 import RegisterScreen from "./app/screens/RegisterScreen";
 import ImageInput from "./app/components/ImageInput";
+import ImageInputList from "./app/components/ImageInputList";
 
 export default function App() {
 
-  const [imageUri, setImageUri] = useState();
+  const [imageUris, setImageUris] = useState([]);
+
+  const handleAdd = (uri) => {
+    setImageUris([...imageUris, uri])
+  }
+
+  const handleRemove = (uri) => {
+    setImageUris(imageUris.filter(imageUri => imageUri != uri))
+  }
 
   return <Screen>
-    <ImageInput imageUri={imageUri} onChangeImage={(uri) => setImageUri(uri)} />
+    <ImageInputList imageUris={imageUris}
+      onAddImage={uri => handleAdd(uri)}
+      onRemoveImage={uri => handleRemove(uri)}
+    />
   </Screen>;
 }
